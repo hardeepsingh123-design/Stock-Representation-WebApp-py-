@@ -5,11 +5,6 @@ import pandas_datareader as web
 from PIL import Image
 import streamlit as stt
 
-#subprocess.call(['StockWebApp.py'], shell=True)
-
-# Add title and image
-
-
 # Create a sidebar header
 stt.sidebar.header('User Input')
 
@@ -27,7 +22,6 @@ def get_input():
         'Alibaba Group',
         'Sundial Growers'
     ]
-    #choice = stt.sidebar.selectbox("Menu", menu)
     stock_symbol = stt.sidebar.selectbox("Stock Symbol", menu)
     return start_date, end_date, stock_symbol
 
@@ -108,6 +102,3 @@ def startup():
         stt.write(df.describe())
     except:
         stt.error("Data Unavailable")
-
-
-
