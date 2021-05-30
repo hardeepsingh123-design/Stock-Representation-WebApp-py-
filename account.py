@@ -4,8 +4,6 @@ from streamlit import caching
 import psycopg2
 from StockWebApp import *
 
-# Security
-# passlib,hashlib,bcrypt,scrypt
 
 import hashlib
 def make_hashes(password):
@@ -22,11 +20,6 @@ conn = psycopg2.connect(
 )
 
 c = conn.cursor()
-# DB  Functions
-
-# def create_usertable():
-# 	c.execute('CREATE TABLE IF NOT EXISTS userstable(username TEXT,password TEXT)')
-
 
 def add_userdata(username,password):
 	query = """insert into useraccount(email,password) values(%s,%s)"""
@@ -89,6 +82,3 @@ elif choice == "SignUp":
 			add_userdata(new_user,make_hashes(new_password))
 		else:
 			st.error("UserName or Password is required!")
-
-# if __name__ == '__main__':
-# 	main()
